@@ -59,6 +59,8 @@
 html {
    scroll-behavior: smooth;
    scroll-padding-top: 80px;
+   overflow-x: hidden;
+   width: 100%;
 }
 
 body {
@@ -68,6 +70,8 @@ body {
    line-height: 1.6;
    transition: var(--transition);
    overflow-x: hidden;
+   width: 100%;
+   position: relative;
 }
 
 h1,
@@ -96,6 +100,10 @@ img {
    max-width: 100%;
    height: auto;
    display: block;
+}
+
+section {
+   overflow: hidden;
 }
 
 .container {
@@ -407,14 +415,13 @@ img {
    HERO SECTION
    ========================================= */
 .hero {
-   height: 100vh;
-   min-height: 600px;
    display: flex;
    align-items: center;
    position: relative;
-   background: url('https://images.unsplash.com/photo-1621293954908-907159247fc8?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+   background: url('hero.jpg') center/cover no-repeat;
    margin-top: 0;
-   padding-top: 80px;
+   padding-top: 180px;
+   padding-bottom: 100px;
 }
 
 .hero-overlay {
@@ -503,6 +510,10 @@ img {
    color: var(--primary-green);
    margin-right: 1rem;
    font-size: 1.2rem;
+}
+
+.about-image {
+   position: relative;
 }
 
 .image-wrapper {
@@ -617,6 +628,51 @@ img {
 
 .service-card:hover .service-link {
    color: var(--primary-green);
+}
+
+/* =========================================
+   RECENT WORK SECTION
+   ========================================= */
+.recent-work {
+   background-color: var(--bg-primary);
+}
+
+.recent-work-grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 2.5rem;
+   max-width: 960px;
+   margin: 0 auto;
+}
+
+.recent-work-item {
+   border-radius: 20px;
+   overflow: hidden;
+   box-shadow: var(--card-shadow);
+   border: 1px solid var(--border-color);
+   background-color: var(--bg-secondary);
+   aspect-ratio: 1 / 1;
+}
+
+.recent-work-item img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recent-work-item:hover img {
+   transform: scale(1.06);
+}
+
+@media (max-width: 576px) {
+   .recent-work-grid {
+      gap: 1rem;
+   }
+   
+   .recent-work-item {
+      border-radius: 12px;
+   }
 }
 
 /* =========================================
@@ -1298,6 +1354,10 @@ img {
 
 @media (max-width: 768px) {
 
+   .container {
+      padding: 0 1rem;
+   }
+
    .desktop-nav,
    .d-none-mobile {
       display: none;
@@ -1321,6 +1381,32 @@ img {
 
    .hero-content p {
       font-size: 1.2rem;
+   }
+
+   .services-grid,
+   .contact-cards {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+   }
+
+   .banner-cta h2 {
+      font-size: 2.0rem;
+   }
+
+   .experience-badge {
+      width: 120px;
+      height: 120px;
+      bottom: -15px;
+      right: -15px;
+      border-width: 6px;
+   }
+
+   .experience-badge .number {
+      font-size: 1.6rem;
+   }
+
+   .experience-badge .text {
+      font-size: 0.85rem;
    }
 
    .section-padding {
@@ -1370,6 +1456,14 @@ img {
 }
 
 @media (max-width: 480px) {
+   .container {
+      padding: 0 0.75rem;
+   }
+
+   .logo h1 {
+      font-size: 1.35rem;
+   }
+
    .hero-content h1 {
       font-size: 2rem;
    }
@@ -1381,6 +1475,41 @@ img {
 
    .btn {
       width: 100%;
+   }
+
+   .banner-cta h2 {
+      font-size: 1.6rem;
+   }
+
+   .quote-info,
+   .quote-form-container {
+      padding: 1.5rem 1rem;
+   }
+
+   .stat-item {
+      padding: 1.5rem;
+   }
+
+   .experience-badge {
+      width: 100px;
+      height: 100px;
+      bottom: -10px;
+      right: -10px;
+      border-width: 4px;
+   }
+
+   .experience-badge .number {
+      font-size: 1.3rem;
+   }
+
+   .experience-badge .text {
+      font-size: 0.75rem;
+   }
+
+   .chatbot-window {
+      width: calc(100vw - 40px);
+      right: -10px;
+      bottom: 70px;
    }
 
    .comparison-slider {
